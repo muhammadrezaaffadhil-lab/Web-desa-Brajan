@@ -1,0 +1,428 @@
+/* ==========================================================================
+   1. GOOGLE FONTS, RESET & BASE STYLE
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap');
+
+* {
+    margin: 0;  
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    overflow-x: hidden;
+    opacity: 0;
+    animation: fadeInPage 0.8s ease-in forwards;
+}
+
+/* --- Animasi Page Load --- */
+@keyframes fadeInPage {
+    to { opacity: 1; }
+}
+
+
+/* ==========================================================================
+   2. NAVIGATION BAR (RESPONSIVE)
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, #060607, #060607);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap; /* Mengizinkan menu turun rapi jika layar sangat sempit */
+    gap: 15px;
+}
+
+.logo h2 {
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav-links li {
+    margin: 0; /* Menggunakan gap pada flex container agar lebih konsisten */
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #1e3c72;
+    border-bottom: 2px solid #1e3c72;
+}
+
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: slideDown 0.8s ease-out forwards;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    animation: slideUp 0.8s ease-out forwards 0.2s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ==========================================================================
+   4. MAIN CONTENT LAYOUT & SECTION TITLE
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    font-size: 2.5rem;
+    color: #1e3c72;
+    line-height: 1.3;
+}
+
+.kegiatan-section {
+    margin-bottom: 50px;
+}
+
+.sub-section-title {
+    font-size: 1.5rem;
+    color: #1e3c72;
+    margin-bottom: 20px;
+    border-left: 5px solid #fca311;
+    padding-left: 12px;
+    font-weight: 600;
+}
+
+
+/* ==========================================================================
+   5. GRID SYSTEM UNIVERSAL
+   ========================================================================== */
+.grid-container, .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+/* Grid khusus penataan Kartu Portrait agar sejajar rapi ke samping */
+.grid-portrait {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+
+/* ==========================================================================
+   6. FITUR BOX & UNIVERSAL CARDS
+   ========================================================================== */
+.fitur-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+/* --- Kategori Kartu / Card Universal --- */
+.card, .custom-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* State awal kartu sebelum animasi masuk */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUpCard 0.6s ease-out forwards;
+}
+
+/* Efek Interaktif Angkat Kartu Saat Disorot Kursor */
+.card:hover, .custom-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Pembungkus Gambar Kartu Kunci Portrait Vertikal (Anti-Gepeng) */
+.card img, .card-img-wrapper, .card-img-wrapper img {
+    width: 100%;
+    height: 380px; /* Ukuran tinggi potret vertikal ideal PC */
+    overflow: hidden;
+    background-color: #eaeaea; 
+    object-fit: cover; 
+    display: block;
+}
+
+/* Area Teks di Dalam Kartu */
+.card-content, .card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3, .card-body h3 {
+    font-size: 1.2rem;
+    color: #111;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.kegiatan-tanggal {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.card-content p, .card-body p {
+    color: #555;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* --- Keyframes Animasi Kartu Muncul --- */
+@keyframes fadeInUpCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ==========================================================================
+   7. FILTER BUTTONS & UNIVERSAL BUTTON
+   ========================================================================== */
+.filter-buttons, .filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Tombol kategori UMKM membungkus rapi di HP */
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid #1e3c72;
+    background: transparent;
+    color: #1e3c72;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #1e3c72;
+    color: #fff;
+}
+
+/* --- Tombol Unduh Kapsul Universal --- */
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #1e3c72;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px; 
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px; 
+    align-self: flex-start; 
+}
+
+.btn:hover {
+    background-color: #1e3c72;
+    color: #fff;
+}
+
+
+/* ==========================================================================
+   8. GOOGLE MAPS SECTION
+   ========================================================================== */
+.map-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.map-subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: -30px; 
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.map-container {
+    width: 100%;
+    background: #fff;
+    padding: 15px; 
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+.map-container iframe {
+    border-radius: 8px; 
+    display: block;
+}
+
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   10. RESPONSIVE MEDIA QUERIES (MOBILE FRIENDLY BREAKPOINTS)
+   ========================================================================== */
+
+/* --- Layar Tablet / Laptop Kecil (Max 992px) --- */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .grid-portrait {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* --- Layar HP Umum (Max 768px) --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Membuat Logo di atas dan Menu di bawahnya */
+        text-align: center;
+        padding: 15px;
+    }
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+    }
+    .hero {
+        height: 50vh; /* Mengurangi tinggi hero section agar proporsional di HP */
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .grid-container, .grid-layout {
+        grid-template-columns: 1fr; /* Memaksa 1 kolom penuh ke bawah di HP */
+        gap: 20px;
+    }
+}
+
+/* --- Layar HP Kecil (Max 576px) --- */
+@media (max-width: 576px) {
+    .container {
+        margin: 25px auto;
+        padding: 0 15px; /* Mengurangi padding tepi agar konten teks lebih luas */
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    .sub-section-title {
+        font-size: 1.3rem;
+    }
+    .card img, .card-img-wrapper, .card-img-wrapper img {
+        height: 280px; /* Menurunkan tinggi gambar agar kartu tidak terlalu panjang ke bawah */
+    }
+    .card-content, .card-body {
+        padding: 15px; /* Spasi teks dalam kartu lebih ramping di HP */
+    }
+    .map-section {
+        margin: 40px auto;
+    }
+    .map-subtitle {
+        margin-top: -15px;
+        margin-bottom: 20px;
+        font-size: 0.85rem;
+    }
+    .map-container {
+        padding: 8px;
+    }
+    .map-container iframe {
+        height: 260px; /* Mengurangi tinggi visual peta agar nyaman di-scroll di layar sentuh */
+    }
+}

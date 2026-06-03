@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM Unggulan | Karangdukuh</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="gambar/logo.png">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="gambar/logo.png" alt="Logo" class="logo-img" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                <h2 style="display: inline-block; vertical-align: middle;">Desa Karangdukuh</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="kegiatan.html">Kegiatan</a></li>
+                <li><a href="umkm.html" class="active">UMKM</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h2 class="section-title">Pusat UMKM</h2>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProduk('semua', this)">Semua</button>
+            <button class="filter-btn" onclick="filterProduk('petani', this)">Petani</button>
+            <button class="filter-btn" onclick="filterProduk('peternakan', this)">Peternakan</button>
+        </div>
+
+        <div class="grid-layout" id="produk-grid">
+            
+            <div class="custom-card" data-kategori="petani">
+                <div class="card-img-wrapper">
+                    <img src="gambar/sawah.jpeg" alt="petani">
+                </div>
+                <div class="card-body">
+                    <h3>Pertanian</h3>
+                    <p>Masyarakat Desa Karangdukuh memanfaatkan sektor pertanian sebagai mata pencaharian utama untuk memenuhi kebutuhan.</p>
+                </div>
+            </div>
+
+            <div class="custom-card" data-kategori="peternakan">
+                <div class="card-img-wrapper">
+                    <img src="gambar/ternak.jpg" alt="peternakan">
+                </div>
+                <div class="card-body">
+                    <h3>Peternakan</h3>
+                    <p>Desa Karangdukuh memiliki usaha peternakan ayam dengan memanfaatkan telur ayam untuk dijual maupun dikonsumsi.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kelurahan Karangdukuh. By Fadhil SMK N 2 Klaten</p>
+    </footer>
+
+    <script>
+        function filterProduk(kategori, elemen) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            elemen.classList.add('active');
+
+            // Selector disesuaikan dengan class .custom-card
+            let kartu = document.querySelectorAll('#produk-grid .custom-card');
+            kartu.forEach(item => {
+                if(kategori === 'semua' || item.getAttribute('data-kategori') === kategori) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
