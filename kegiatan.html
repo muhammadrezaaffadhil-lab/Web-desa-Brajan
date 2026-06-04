@@ -7,93 +7,105 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="gambar/logo.png">
 </head>
-    <!-- Modal Fullscreen -->
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="gambar/logo.png" class="logo-img" style="height:40px;">
+            <h2>Desa Karangdukuh</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="kegiatan.html" class="active">Kegiatan</a></li>
+            <li><a href="umkm.html">UMKM</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+
+<h2 class="section-title">Informasi & Kegiatan Desa</h2>
+
+<!-- KEGIATAN -->
+<div class="kegiatan-section">
+    <h3 class="sub-section-title">Kegiatan</h3>
+
+    <div class="grid-portrait">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="gambar/foto gotong royong.jpg"
+                     alt="Gotong royong"
+                     onclick="openImage(this.src)">
+            </div>
+            <div class="card-content">
+                <h3>Gotong royong</h3>
+                <p>Kegiatan rutin menjaga kebersihan lingkungan.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="gambar/foto kumpulan.jpg"
+                     alt="Pemuda"
+                     onclick="openImage(this.src)">
+            </div>
+            <div class="card-content">
+                <h3>Acara pemuda-pemudi</h3>
+                <p>Kegiatan kebersamaan warga desa.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- POSTER -->
+<div class="kegiatan-section">
+    <h3 class="sub-section-title">Poster & Potensi Desa</h3>
+
+    <div class="grid-portrait">
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="gambar/poster event.jpg" alt="Poster">
+            </div>
+            <div class="card-content">
+                <h3>Poster Kemerdekaan</h3>
+                <a href="gambar/poster event.jpg" download class="btn">Unduh</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="gambar/poster potensi.jpeg" alt="Potensi">
+            </div>
+            <div class="card-content">
+                <h3>Potensi Desa</h3>
+                <a href="gambar/poster potensi.jpeg" download class="btn">Unduh</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Kelurahan Karangdukuh</p>
+</footer>
+
+<!-- MODAL FULLSCREEN -->
 <div id="imageModal" class="modal" onclick="closeImage()">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImg">
 </div>
-<body>
-<header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="gambar/logo.png" alt="Logo" class="logo-img" style="height: 40px; margin-right: 10px; vertical-align: middle;">
-                <h2 style="display: inline-block; vertical-align: middle;">Desa Karangdukuh</h2>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="kegiatan.html" class="active">Kegiatan</a></li>
-                <li><a href="umkm.html">UMKM</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="container">
-        <h2 class="section-title">Informasi & Kegiatan Desa</h2>
+<script src="script.js"></script>
 
-            </div>
-        </div>
-
-        <div class="kegiatan-section">
-            <h3 class="sub-section-title">Kegiatan</h3>
-            <div class="grid-portrait">
-
-                <div class="card" style="animation-delay: 0.5s;">
-                    <div class="card-img-wrapper">
-                        <img src="gambar/foto gotong royong.jpg" alt="Gotong royong" onclick="openImage(this.src)">
-                    </div>
-                    <div class="card-content">
-                        <h3>Gotong royong</h3>
-                        <p>Kegiatan gotong royong rutin setiap minggu untuk menjaga kebersihan lingkungan.</p>
-                    </div>
-                </div>
-
-                <div class="card" style="animation-delay: 0.6s;">
-                    <div class="card-img-wrapper">
-                        <img src="gambar/foto kumpulan.jpg" alt="Makan bersama pemuda-pemudi" onclick="openImage(this.src)">
-                    </div>
-                    <div class="card-content">
-                        <h3>Acara makan bersama pemuda-pemudi</h3>
-                        <p>Makan bersama pemuda-pemudi serta acara kumpulan rutin untuk meningkatkan kebersamaan.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="kegiatan-section">
-            <h3 class="sub-section-title">Poster & Potensi desa</h3>
-            <div class="grid-portrait">
-
-                <div class="card" style="animation-delay: 0.7s;">
-                    <div class="card-img-wrapper">
-                        <img src="gambar/poster event.jpg" alt="Poster Kemerdekaan">
-                    </div>
-                    <div class="card-content">
-                        <h3>Poster Kemerdekaan Desa</h3>
-                        <p style="margin-bottom: 15px;">Poster resmi peringatan Hari Kemerdekaan RI pemerintah Desa Karngdukuh.</p>
-                        <a href="gambar/poster event.jpg" download class="btn">Unduh Gambar A4</a>
-                    </div>
-                </div>
-
-                <div class="card" style="animation-delay: 0.8s;">
-                    <div class="card-img-wrapper">
-                        <img src="gambar/poster potensi.jpeg" alt="Poster Potensi">
-                    </div>
-                    <div class="card-content">
-                        <h3>Potensi desa</h3>
-                        <p style="margin-bottom: 15px;">Potensi yang dimiliki di lingkungan Desa Karangdukuh.</p>
-                        <a href="gambar/poster potensi.jpeg" download class="btn">Unduh Gambar A4</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Kelurahan Karangdukuh. By Fadhil SMK N 2 Klaten</p>
-    </footer>
 </body>
 </html>
