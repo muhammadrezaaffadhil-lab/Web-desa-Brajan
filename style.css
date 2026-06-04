@@ -460,3 +460,25 @@ footer {
     color: white;
     cursor: pointer;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* ini yang bikin sejajar tengah */
+    gap: 10px; /* jarak gambar dan teks */
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
